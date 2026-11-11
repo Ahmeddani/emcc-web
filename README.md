@@ -19,13 +19,16 @@ EMCC does not yet have a permanent masjid or community center — the site is bu
 ## Still placeholder / needs follow-up
 
 - **Donation details** — `donate.html` Zelle/PayPal/bank info is still placeholder text (`donate@emcc-columbus.org` and no live PayPal/Stripe/Zeffy link). Replace with the community's real payment details before relying on it for donations.
-- **Contact form** — submits to Formspree (`contact.html` form `action`, handled via `fetch` in `assets/js/main.js`), currently pointed at a test endpoint (`https://formspree.io/f/mdegngjd`) delivering to a test inbox. Swap in the production Formspree form (or a different backend) before launch.
 - **Membership numbers** — `index.html`, `project.html`, and `donate.html` show "60 / 100 families"; update the numbers and the `width` on `.progress-fill` as the drive progresses.
 - **Events** — `events.html` lists the recurring Ramadan iftar / Eid gatherings for the 2027 season; update dates and venues each year.
 
+## Contact form
+
+`contact.html` submits to Formspree (form `action`, handled via `fetch` in `assets/js/main.js`), endpoint `https://formspree.io/f/mdegngjd`, delivering to `emccohio2020@gmail.com`.
+
 ## Logo
 
-Header and footer use `assets/img/emcc-logo-full.png` and `assets/img/emcc-logo.png` respectively (source files in `logos/`). Sizing is controlled by the `.brand-mark` / `.brand-mark-full` rules in `assets/css/style.css`.
+Header and footer use `assets/img/emcc-logo-full.png` and `assets/img/emcc-logo.png` respectively (source files in `logos/`), and the browser tab icon is `assets/img/emcc-favicon.png` (a square crop of the same mark). Sizing is controlled by the `.brand-mark` / `.brand-mark-full` rules in `assets/css/style.css`.
 
 ## Run locally
 
