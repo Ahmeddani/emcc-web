@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Contact form — opens the visitor's email client addressed to EMCC
   const contactForm = document.querySelector('#contact-form');
   if (contactForm) {
-    const CONTACT_EMAIL = 'emccohio2020@gmail.com';
+    const CONTACT_EMAIL = 'ahmiduwanur@gmail.com'; // TODO: swap back to emccohio2020@gmail.com after testing
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const name = contactForm.querySelector('#name').value.trim();
