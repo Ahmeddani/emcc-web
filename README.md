@@ -16,17 +16,17 @@ EMCC does not yet have a permanent masjid or community center — the site is bu
 - `donate.html` — Building fund, membership dues, Zakat & Sadaqah
 - `contact.html` — Contact form, map, address
 
-## Before going live, replace these placeholders
+## Still placeholder / needs follow-up
 
-- **Address / phone / email** — in every page's footer and header hero, plus `contact.html`.
-- **Membership numbers** — `index.html`, `project.html`, and `donate.html` show "60 / 100 members"; update the numbers and the `width` on `.progress-fill` as the drive progresses.
-- **Proposed Plan phases 2 & 3** — `project.html` only has confirmed detail for Phase 1 (Targeted Membership Drive) from the source proposal; phases 2–3 are placeholders — replace with the committee's actual next steps once finalized.
-- **Events** — `events.html` has sample events; update or wire up to a real calendar.
-- **Donation details** — `donate.html` Zelle/PayPal/bank info is placeholder.
-- **Google Map** — `contact.html` map is centered on Columbus generally; swap in a specific embed once a location is secured.
-- **Social links** — footer `#` links for Facebook/Instagram/YouTube.
-- **Contact form** — currently front-end only (shows a success message but doesn't send anywhere). Wire it to a backend, or a service like Formspree/EmailJS, or point it at the existing `emcc-admin-backend` API.
-- **Logo** — the `☪` in the header/footer is a placeholder mark; swap in an actual logo image if you have one.
+- **Donation details** — `donate.html` Zelle/PayPal/bank info is still placeholder text (`donate@emcc-columbus.org` and no live PayPal/Stripe/Zeffy link). Replace with the community's real payment details before relying on it for donations.
+- **Google Map** — `contact.html` map is centered on Columbus generally; swap in a specific embed once a meeting location is secured.
+- **Contact form** — currently front-end only (`assets/js/main.js`): it shows a success message but doesn't send anywhere. Wire it to a backend, a service like Formspree/EmailJS, or the existing `emcc-admin-backend` API.
+- **Membership numbers** — `index.html`, `project.html`, and `donate.html` show "60 / 100 families"; update the numbers and the `width` on `.progress-fill` as the drive progresses.
+- **Events** — `events.html` lists the recurring Ramadan iftar / Eid gatherings for the 2027 season; update dates and venues each year.
+
+## Logo
+
+Header and footer use `assets/img/emcc-logo-full.png` and `assets/img/emcc-logo.png` respectively (source files in `logos/`). Sizing is controlled by the `.brand-mark` / `.brand-mark-full` rules in `assets/css/style.css`.
 
 ## Run locally
 
@@ -38,4 +38,6 @@ python3 -m http.server 8080
 
 ## Deploy
 
-Any static host works: Firebase Hosting, GitHub Pages, Netlify, Vercel, or S3. No build command needed — just publish the folder as-is.
+Live at **https://www.emccohio.org** via GitHub Pages (source: `main` branch, root folder; custom domain configured via the `CNAME` file). No build step — pushes to `main` publish directly.
+
+Note: "Enforce HTTPS" is currently off in the repo's Pages settings, so `http://www.emccohio.org` is reachable unencrypted — worth enabling once DNS/cert is confirmed stable.
