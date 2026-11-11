@@ -532,6 +532,7 @@ p { color: var(--muted); }
 .form-status { margin-top: 14px; font-size: 0.9rem; font-weight: 600; display: none; }
 .form-status.show { display: block; }
 .form-status.ok { color: var(--primary); }
+.form-status.error { color: #c0392b; }
 
 .map-embed {
   border-radius: var(--radius);

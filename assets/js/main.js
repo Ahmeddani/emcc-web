@@ -25,27 +25,37 @@ document.addEventListener('DOMContentLoaded', () => {
     el.textContent = new Date().getFullYear();
   });
 
-  // Contact form — opens the visitor's email client addressed to EMCC
+  // Contact form — submits to Formspree, which emails EMCC directly
   const contactForm = document.querySelector('#contact-form');
   if (contactForm) {
-    const CONTACT_EMAIL = 'ahmiduwanur@gmail.com'; // TODO: swap back to emccohio2020@gmail.com after testing
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const name = contactForm.querySelector('#name').value.trim();
-      const email = contactForm.querySelector('#email').value.trim();
-      const subject = contactForm.querySelector('#subject').value;
-      const message = contactForm.querySelector('#message').value.trim();
-
-      const mailSubject = `EMCC Website Contact: ${subject}`;
-      const mailBody = `${message}\n\n—\nFrom: ${name} (${email})`;
-      const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
-
-      window.location.href = mailtoUrl;
-
       const status = contactForm.querySelector('.form-status');
-      status.textContent = 'Your email app should now open with your message ready to send to EMCC — just hit send.';
-      status.classList.add('show', 'ok');
-      contactForm.reset();
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: contactForm.method,
+          body: new FormData(contactForm),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (response.ok) {
+          status.textContent = 'Jazakum Allahu khayran! Your message has been sent — we will get back to you soon.';
+          status.classList.remove('error');
+          status.classList.add('show', 'ok');
+          contactForm.reset();
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (err) {
+        status.textContent = "Something went wrong sending your message. Please email us directly at emccohio2020@gmail.com.";
+        status.classList.remove('ok');
+        status.classList.add('show', 'error');
+      } finally {
+        submitBtn.disabled = false;
+      }
     });
   }
 });
