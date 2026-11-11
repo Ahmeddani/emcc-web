@@ -19,8 +19,7 @@ EMCC does not yet have a permanent masjid or community center — the site is bu
 ## Still placeholder / needs follow-up
 
 - **Donation details** — `donate.html` Zelle/PayPal/bank info is still placeholder text (`donate@emcc-columbus.org` and no live PayPal/Stripe/Zeffy link). Replace with the community's real payment details before relying on it for donations.
-- **Google Map** — `contact.html` map is centered on Columbus generally; swap in a specific embed once a meeting location is secured.
-- **Contact form** — currently front-end only (`assets/js/main.js`): it shows a success message but doesn't send anywhere. Wire it to a backend, a service like Formspree/EmailJS, or the existing `emcc-admin-backend` API.
+- **Contact form** — submits via a `mailto:` link to `emccohio2020@gmail.com` (`assets/js/main.js`), so it opens the visitor's own email client rather than sending silently in the background. Swap in a real backend or form service (Formspree/EmailJS/`emcc-admin-backend`) if you want true background delivery.
 - **Membership numbers** — `index.html`, `project.html`, and `donate.html` show "60 / 100 families"; update the numbers and the `width` on `.progress-fill` as the drive progresses.
 - **Events** — `events.html` lists the recurring Ramadan iftar / Eid gatherings for the 2027 season; update dates and venues each year.
 

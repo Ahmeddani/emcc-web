@@ -25,13 +25,25 @@ document.addEventListener('DOMContentLoaded', () => {
     el.textContent = new Date().getFullYear();
   });
 
-  // Contact form (front-end only demo — wire up to a backend or form service later)
+  // Contact form — opens the visitor's email client addressed to EMCC
   const contactForm = document.querySelector('#contact-form');
   if (contactForm) {
+    const CONTACT_EMAIL = 'emccohio2020@gmail.com';
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const name = contactForm.querySelector('#name').value.trim();
+      const email = contactForm.querySelector('#email').value.trim();
+      const subject = contactForm.querySelector('#subject').value;
+      const message = contactForm.querySelector('#message').value.trim();
+
+      const mailSubject = `EMCC Website Contact: ${subject}`;
+      const mailBody = `${message}\n\n—\nFrom: ${name} (${email})`;
+      const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(mailSubject)}&body=${encodeURIComponent(mailBody)}`;
+
+      window.location.href = mailtoUrl;
+
       const status = contactForm.querySelector('.form-status');
-      status.textContent = 'Jazakum Allahu khayran! Your message has been received — we will get back to you soon.';
+      status.textContent = 'Your email app should now open with your message ready to send to EMCC — just hit send.';
       status.classList.add('show', 'ok');
       contactForm.reset();
     });
