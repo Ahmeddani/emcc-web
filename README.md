@@ -24,7 +24,7 @@ EMCC does not yet have a permanent masjid or community center — the site is bu
 
 ## Contact form
 
-`contact.html` submits to Formspree (form `action`, handled via `fetch` in `assets/js/main.js`), endpoint `https://formspree.io/f/mdegngjd`, delivering to `emccohio2020@gmail.com`.
+`contact.html` submits to Formspree (form `action`, handled via `fetch` in `assets/js/main.js`), endpoint `https://formspree.io/f/mqpqklwe`, delivering to `emccohio2020@gmail.com`.
 
 ## Logo
 
