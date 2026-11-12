@@ -18,13 +18,20 @@ EMCC does not yet have a permanent masjid or community center — the site is bu
 
 ## Still placeholder / needs follow-up
 
-- **Donation details** — `donate.html` Zelle/PayPal/bank info is still placeholder text (`donate@emcc-columbus.org` and no live PayPal/Stripe/Zeffy link). Replace with the community's real payment details before relying on it for donations.
+- **PayPal Client ID** — `assets/js/donate.js` uses PayPal's sandbox `sb` Client ID, which renders the buttons for testing but cannot process real payments. Once EMCC has a PayPal Business account, swap in the real Client ID from developer.paypal.com (Apps & Credentials → Live) and update the `PAYPAL_CLIENT_ID` constant.
 - **Membership numbers** — `index.html`, `project.html`, and `donate.html` show "60 / 100 families"; update the numbers and the `width` on `.progress-fill` as the drive progresses.
 - **Events** — `events.html` lists the recurring Ramadan iftar / Eid gatherings for the 2027 season; update dates and venues each year.
 
 ## Contact form
 
 `contact.html` submits to Formspree (form `action`, handled via `fetch` in `assets/js/main.js`), endpoint `https://formspree.io/f/mqpqklwe`, delivering to `emccohio2020@gmail.com`.
+
+## Donations
+
+`donate.html` has a toggle between two methods:
+
+- **Zelle / Bank Transfer** — static instructions pointing to `emccohio2020@gmail.com`.
+- **PayPal / Debit or Credit Card** — preset ($25/$50/$100/$250) or custom amount, then PayPal's JS SDK (`assets/js/donate.js`) renders the PayPal button, Pay Later, and a guest "Debit or Credit Card" button side by side. Card entry goes through PayPal's own hosted fields — card numbers never touch our server or JS, so no PCI-DSS burden falls on this site. Currently running against the sandbox Client ID (see placeholder note above).
 
 ## Logo
 
